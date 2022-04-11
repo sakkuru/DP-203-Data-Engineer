@@ -12,9 +12,9 @@ $datasetsPath = "..\datasets"
 $dataflowsPath = "..\dataflows"
 $pipelinesPath = "..\pipelines"
 
-# Add Values from the first setup script here
-
-# Add Values from the second setup script here
+# Add Values from the previous setup script here
+$Powershell = "./setup-values.ps1"
+Start-Process -FilePath $Powershell -NoNewWindow -Wait
 
 # User must sign in using az login
 Write-Host "Sign into Azure using your credentials.."

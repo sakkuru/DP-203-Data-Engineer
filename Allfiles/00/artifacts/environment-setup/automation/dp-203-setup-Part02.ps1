@@ -10,6 +10,8 @@ Import-Module "..\solliance-synapse-automation"
 $templatesPath = "..\templates"
 
 # Add Values from the first setup script here
+$Powershell = "./setup-values.ps1"
+Start-Process -FilePath $Powershell -NoNewWindow -Wait
 
 # User must sign in using az login
 Write-Host "Sign into Azure using your credentials.."
@@ -134,6 +136,6 @@ $SetupStep3Variables = "
 `$dataLakeAccountName = `"$dataLakeAccountName`"
 "
 
-((Get-Content -path .\dp-203-setup-Part03.ps1 -Raw) -replace '# Add Values from the second setup script here',"$SetupStep3Variables") | Set-Content -Path .\dp-203-setup-Part03.ps1
+Write-Output $SetupStep3Variables | Add-Content -Encoding Default setup-values.ps1
 
 $SetupStep3Variables

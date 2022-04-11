@@ -274,9 +274,7 @@ $SetupStep2Variables = "
 }
 "
 
-((Get-Content -path .\dp-203-setup-Part02.ps1 -Raw) -replace '# Add Values from the first setup script here',"$SetupStep2Variables") | Set-Content -Path .\dp-203-setup-Part02.ps1
-
-((Get-Content -path .\dp-203-setup-Part03.ps1 -Raw) -replace '# Add Values from the first setup script here',"$SetupStep2Variables") | Set-Content -Path .\dp-203-setup-Part03.ps1
+Write-Output $SetupStep2Variables | Set-Content -Encoding Default setup-values.ps1
 
 $SetupStep2Variables
 
